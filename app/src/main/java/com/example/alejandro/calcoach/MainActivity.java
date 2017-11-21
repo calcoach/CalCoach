@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
                     answerQuestion((String) r1.getText(),quiz1);
                 }else{
                     if(r2.isChecked()){
-                        answerQuestion((String) r1.getText(),quiz1);
+                        answerQuestion((String) r2.getText(),quiz1);
                     }else{
                         if(r3.isChecked()){
-                            answerQuestion((String) r1.getText(),quiz1);
+                            answerQuestion((String) r3.getText(),quiz1);
                         }else{
                             if(r4.isChecked()){
-                                answerQuestion((String) r1.getText(),quiz1);
+                                answerQuestion((String) r4.getText(),quiz1);
                             }
                             else{
                                 Toast.makeText(getApplicationContext(), "Elija una respuesta",Toast.LENGTH_SHORT).show();
@@ -58,13 +58,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
-                if(quiz1.hasNextQuestion()){
-                    nextQuestion(quiz1);
-                }else{
-                    setContentView(R.layout.resultslayout);
-                    Toast.makeText(getApplicationContext(), String.valueOf(quiz1.getCalification()),Toast.LENGTH_SHORT).show();
-                }
-
             }
         });
 
@@ -72,21 +65,30 @@ public class MainActivity extends AppCompatActivity {
 
     private void nextQuestion(Quiz q){
 
-        question.setText((CharSequence) q.getActualQuestion().getQuestion());
+        question.setText(q.getActualQuestion().getQuestion());
         AleatoryAnswer aleatoryAnswer = new AleatoryAnswer(q.getActualQuestion());
-        r1.setText((CharSequence) aleatoryAnswer.getAnswer());
-        r2.setText((CharSequence) aleatoryAnswer.getAnswer());
-        r3.setText((CharSequence) aleatoryAnswer.getAnswer());
-        r4.setText((CharSequence) aleatoryAnswer.getAnswer());
+        r1.setText(aleatoryAnswer.getAnswer());
+        r2.setText(aleatoryAnswer.getAnswer());
+        r3.setText(aleatoryAnswer.getAnswer());
+        r4.setText(aleatoryAnswer.getAnswer());
     }
 
     private void answerQuestion(String ans, Quiz quiz){
+
         if(quiz.aswerQuestionActual(ans)){
             Toast.makeText(getApplicationContext(), "Correcto",Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(getApplicationContext(), "Incorrecto",Toast.LENGTH_SHORT).show();
         }
 
-        nextQuestion(quiz);
+        if(quiz.hasNextQuestion()){
+            nextQuestion(quiz);
+            radioGroup.clearCheck();
+        }else{
+            setContentView(R.layout.resultslayout);
+            Toast.makeText(getApplicationContext(), String.valueOf(quiz.getCalification()),Toast.LENGTH_SHORT).show();
+            TextView t = findViewById(R.id.viewResult);
+            t.setText(String.valueOf(quiz.getCalification()));
+        }
     }
 }

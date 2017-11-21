@@ -26,6 +26,20 @@ public class ExampleUnitTest {
 
     @Test
     public void quiz_isCorrect() throws Exception{
+        Quiz q = new Quiz(1);
 
+        if(q.aswerQuestionActual("7")){
+            System.out.println("correct");
+        }else{
+            System.out.println("incorrect");
+        }
+
+        if(q.aswerQuestionActual("20")){
+            System.out.println("correct");
+        }else{
+            System.out.println("incorrect");
+        }
+        System.out.println(q.hasNextQuestion());
+        q.aswerQuestionActual("q");
     }
 }

@@ -10,7 +10,7 @@ public class Quiz {
 
     private ArrayList<Question> questions = new ArrayList<>();
     private int numQuiz;
-    private int questionActual=-1;// -1 significa que el quiz no se ha empezado a responder
+    private int questionActual=0;// -1 significa que el quiz no se ha empezado a responder
     private double numQuestions=0; //numero de preguntas del quiz
 
     public Quiz(int numQuiz) {
@@ -31,7 +31,7 @@ public class Quiz {
     }
 
     public boolean hasNextQuestion(){
-        if(questionActual <questions.size()-1){
+        if(questionActual <questions.size()){
             return true;
         }else
             return false;
@@ -39,21 +39,17 @@ public class Quiz {
     }
 
     public Question getActualQuestion(){
-        if(questionActual ==-1 ){
-            return questions.get(questionActual+1);
-        }else {
-            return questions.get(questionActual);
-        }
 
+            return questions.get(questionActual);
     }
 
     public boolean aswerQuestionActual(String answer){
 
-        questionActual++;
-
         if(questions.get(questionActual).answerQuestion(answer)){
+            questionActual++;
             return true;
         } else {
+            questionActual++;
             return false;
         }
     }
