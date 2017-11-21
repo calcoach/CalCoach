@@ -78,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
     private void nextQuestion(Quiz q){
 
         question.setText((CharSequence) q.getActualQuestion().getQuestion());
-
+        AleatoryAnswer aleatoryAnswer = new AleatoryAnswer(q.getActualQuestion());
+        r1.setText((CharSequence) aleatoryAnswer.getAnswer());
+        r2.setText((CharSequence) aleatoryAnswer.getAnswer());
+        r3.setText((CharSequence) aleatoryAnswer.getAnswer());
+        r4.setText((CharSequence) aleatoryAnswer.getAnswer());
     }
 }

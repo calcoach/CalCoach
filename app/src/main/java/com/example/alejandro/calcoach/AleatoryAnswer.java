@@ -1,5 +1,7 @@
 package com.example.alejandro.calcoach;
 
+import java.util.Random;
+
 /**
  * Created by Alejandro on 20/11/2017.
  */
@@ -21,6 +23,21 @@ public class AleatoryAnswer {
         String answer3 = question.getAnswerTree();
 
         this.answer[0] = answer;
+        this.answer[1] = answer1;
+        this.answer[2] = answer2;
+        this.answer[3] = answer3;
 
+        Random aleatorio = new Random(System.currentTimeMillis());
+        // Producir nuevo int aleatorio entre 0 y 99
+        int intAleatorio = aleatorio.nextInt(4);
+        String copy = this.answer[intAleatorio];
+        this.answer[intAleatorio] = this.answer[0];
+        this.answer[0]= copy;
+    }
+
+    public String getAnswer(){
+       String a = this.answer[n];
+       n++;
+       return a;
     }
 }
