@@ -20,7 +20,7 @@ public class AleatoryAnswer {
         String answer2 = question.getAnswerTwo();
         String answer3 = question.getAnswerTree();
 
-        String h;
+        this.answer[0] = answer;
 
     }
 }
