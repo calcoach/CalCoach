@@ -1,5 +1,6 @@
 package com.example.alejandro.calcoach;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(Data.start){
+            Data.start=false;
+            Intent sig = new Intent(MainActivity.this,Temas.class);
+            startActivity(sig);
+        }
+
 
         findViewById(R.id.editText).setFocusable(false);
         final Quiz quiz1 = new Quiz(1);
@@ -89,6 +97,16 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), String.valueOf(quiz.getCalification()),Toast.LENGTH_SHORT).show();
             TextView t = findViewById(R.id.viewResult);
             t.setText(String.valueOf(quiz.getCalification()));
+            Button b = findViewById(R.id.button2);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent sig = new Intent(MainActivity.this,Temas.class);
+                    startActivity(sig);
+
+
+                }
+            });
         }
     }
 }

@@ -23,10 +23,10 @@ public class Quiz {
 
         String [][] data = Data.getQuiz();
 
-        questions.add(new Question(data[0][0],data[0][1], data[0][2], data[0][3], data[0][4] ));
-        questions.add(new Question(data[1][0],data[1][1], data[1][2], data[1][3], data[1][4] ));
-        numQuestions++;
-        numQuestions++;
+        for(int i = 0; i< data.length; i++){
+            questions.add(new Question(data[i][0],data[i][1], data[i][2], data[i][3], data[i][4] ));
+            numQuestions++;
+        }
 
     }
 
