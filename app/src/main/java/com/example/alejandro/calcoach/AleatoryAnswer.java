@@ -14,6 +14,7 @@ public class AleatoryAnswer {
 
     public AleatoryAnswer(Question q){
         this.question = q;
+        blendQuestions();
     }
 
     private void blendQuestions(){
@@ -33,6 +34,7 @@ public class AleatoryAnswer {
         String copy = this.answer[intAleatorio];
         this.answer[intAleatorio] = this.answer[0];
         this.answer[0]= copy;
+
     }
 
     public String getAnswer(){

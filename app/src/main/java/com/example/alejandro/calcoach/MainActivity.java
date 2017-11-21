@@ -34,29 +34,26 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         question = findViewById(R.id.editText);
 
+        nextQuestion(quiz1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(r1.isChecked()){
-                    Toast.makeText(getApplicationContext(), "Correcto",Toast.LENGTH_SHORT).show();
-                    quiz1.aswerQuestionActual((String) r1.getText());
-                    System.out.println(r1.getText());
+
+                    answerQuestion((String) r1.getText(),quiz1);
                 }else{
                     if(r2.isChecked()){
-                        Toast.makeText(getApplicationContext(), "Incorrecto",Toast.LENGTH_SHORT).show();
-                        quiz1.aswerQuestionActual((String)r1.getText());
+                        answerQuestion((String) r1.getText(),quiz1);
                     }else{
                         if(r3.isChecked()){
-                            Toast.makeText(getApplicationContext(), "Incorrecto",Toast.LENGTH_SHORT).show();
-                            quiz1.aswerQuestionActual((String)r1.getText());
+                            answerQuestion((String) r1.getText(),quiz1);
                         }else{
                             if(r4.isChecked()){
-                                Toast.makeText(getApplicationContext(), "Incorrecto",Toast.LENGTH_SHORT).show();
-                                quiz1.aswerQuestionActual((String)r1.getText());
+                                answerQuestion((String) r1.getText(),quiz1);
                             }
                             else{
                                 Toast.makeText(getApplicationContext(), "Elija una respuesta",Toast.LENGTH_SHORT).show();
-                                quiz1.aswerQuestionActual((String)r1.getText());
+
                             }
                         }
                     }
@@ -71,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private void nextQuestion(Quiz q){
@@ -83,5 +78,15 @@ public class MainActivity extends AppCompatActivity {
         r2.setText((CharSequence) aleatoryAnswer.getAnswer());
         r3.setText((CharSequence) aleatoryAnswer.getAnswer());
         r4.setText((CharSequence) aleatoryAnswer.getAnswer());
+    }
+
+    private void answerQuestion(String ans, Quiz quiz){
+        if(quiz.aswerQuestionActual(ans)){
+            Toast.makeText(getApplicationContext(), "Correcto",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getApplicationContext(), "Incorrecto",Toast.LENGTH_SHORT).show();
+        }
+
+        nextQuestion(quiz);
     }
 }

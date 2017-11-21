@@ -11,7 +11,7 @@ public class Quiz {
     private ArrayList<Question> questions = new ArrayList<>();
     private int numQuiz;
     private int questionActual=-1;// -1 significa que el quiz no se ha empezado a responder
-    private int numQuestions=0; //numero de preguntas del quiz
+    private double numQuestions=0; //numero de preguntas del quiz
 
     public Quiz(int numQuiz) {
         this.numQuiz = numQuiz;
@@ -25,6 +25,9 @@ public class Quiz {
 
         questions.add(new Question(data[0][0],data[0][1], data[0][2], data[0][3], data[0][4] ));
         questions.add(new Question(data[1][0],data[1][1], data[1][2], data[1][3], data[1][4] ));
+        numQuestions++;
+        numQuestions++;
+
     }
 
     public boolean hasNextQuestion(){
@@ -36,18 +39,26 @@ public class Quiz {
     }
 
     public Question getActualQuestion(){
-        return questions.get(questionActual);
+        if(questionActual ==-1 ){
+            return questions.get(questionActual+1);
+        }else {
+            return questions.get(questionActual);
+        }
+
     }
 
-    public void aswerQuestionActual(String answer){
+    public boolean aswerQuestionActual(String answer){
 
         questionActual++;
 
-        questions.get(questionActual).answerQuestion(answer);
-
+        if(questions.get(questionActual).answerQuestion(answer)){
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public int getCalification(){
+    public double getCalification(){
         int cont = 0;
         for (Question question: questions) {
 
@@ -55,6 +66,6 @@ public class Quiz {
                 cont++;
             }
         }
-        return (5/questions.size())*cont;
+        return (5/numQuestions)*cont;
     }
 }
