@@ -21,7 +21,16 @@ public class Data {
         }
 
         else{
-            return null;
+            if(actualQuiz==2){
+                return quiz2();
+            }
+            else{
+                if(actualQuiz==3){
+                    return quiz3();
+                } else{
+                    return null;
+                }
+            }
         }
     }
 
@@ -49,46 +58,46 @@ public class Data {
 
     private static String [][] quiz1(){
         String [][] quiz1 = new String[3][5];
-        quiz1[0][0] = "1) El Lim x+2, cuando x->1 es:";
+
         quiz1[0][1] ="3";//L primera siempre es la respuesta correcta;
         quiz1[0][2] ="12";
         quiz1[0][3] ="2";
         quiz1[0][4] ="0";
 
-        quiz1[1][0] = "2) El lim x^(2)+3x+2 cuando x->0 es: ";
+        quiz1[1][0] = "2) El lim x^(2)+3x+2 si x->0 es: ";
         quiz1[1][1] ="2";//L primera siempre es la respuesta correcta;
         quiz1[1][2] ="5";
         quiz1[1][3] ="0";
         quiz1[1][4] ="7";
 
-        quiz1[0][0] = "3) En que intervalo es continua la funcion f(x)=x+2:";
-        quiz1[0][1] ="(2,∞)";//L primera siempre es la respuesta correcta;
-        quiz1[0][2] ="(-∞,∞)";
-        quiz1[0][3] ="Todos los R(reales)";
-        quiz1[0][4] ="No es continua";
+        quiz1[2][0] = "3)f(x)=x^(2) es continua en :";
+        quiz1[2][1] ="(2,∞)";//L primera siempre es la respuesta correcta;
+        quiz1[2][2] ="(-∞,∞)";
+        quiz1[2][3] ="Todos los R(reales)";
+        quiz1[2][4] ="No es continua";
         return quiz1;
     }
 
 
     private static String [][] quiz2(){
         String [][] quiz2 = new String[3][5];
-        quiz2[0][0] = "1) La derivada de (-2x2-5x+2) es:";
+        quiz2[0][0] = "1) La derivada de (-2x^(2)-5x+2) es:";
         quiz2[0][1] ="-4x-5 ";//L primera siempre es la respuesta correcta;
         quiz2[0][2] ="-2x-5";
         quiz2[0][3] ="-4x";
         quiz2[0][4] ="0";
 
-        quiz2[1][0] = "2) La derivada de (3x3-2x2-5x+2) es:";
+        quiz2[1][0] = "2) La derivada de (3x^(3)-2x^(2)-5x+2) es:";
         quiz2[1][1] ="9x2-4x-5";//L primera siempre es la respuesta correcta;
         quiz2[1][2] ="9x2-4x";
         quiz2[1][3] ="-2x2-5x+2";
         quiz2[1][4] ="0";
 
-        quiz2[0][0] = "3) La derivada de (x2-1)(x3+3x) es:";
-        quiz2[0][1] ="2x(x3+3x)+(x2-1)(3x2+3) ";//L primera siempre es la respuesta correcta;
-        quiz2[0][2] ="2x+(x2-1)(3x2+3)";
-        quiz2[0][3] ="(x2-1)(3x2+3)";
-        quiz2[0][4] ="(x3+3x)+(x2-1)";
+        quiz2[2][0] = "3) La derivada de (x^(2)-1)(x3+3x) es:";
+        quiz2[2][1] ="2x(x3+3x)+(x2-1)(3x2+3) ";//L primera siempre es la respuesta correcta;
+        quiz2[2][2] ="2x+(x2-1)(3x2+3)";
+        quiz2[2][3] ="(x2-1)(3x2+3)";
+        quiz2[2][4] ="(x3+3x)+(x2-1)";
         return quiz2;
     }
     private static String [][] quiz3(){
@@ -105,11 +114,11 @@ public class Data {
         quiz3[1][3] ="crece(-∞,∞)";
         quiz3[1][4] ="decrece(-1,1)";
 
-        quiz3[0][0] = "3) La funcion f(x)= 3x-x^(3):";
-        quiz3[0][1] ="convexa (-∞,0), concava(0,∞)";//L primera siempre es la respuesta correcta;
-        quiz3[0][2] =" concava(0,∞)";
-        quiz3[0][3] ="convexa (-∞,0)";
-        quiz3[0][4] ="es recta";
+        quiz3[2][0] = "3) La funcion f(x)= 3x-x^(3):";
+        quiz3[2][1] ="convexa (-∞,0), concava(0,∞)";//L primera siempre es la respuesta correcta;
+        quiz3[2][2] =" concava(0,∞)";
+        quiz3[2][3] ="convexa (-∞,0)";
+        quiz3[2][4] ="es recta";
         return quiz3;
     }
 

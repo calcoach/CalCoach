@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     TextView question;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             radioGroup.clearCheck();
         }else{
             setContentView(R.layout.resultslayout);
-            Toast.makeText(getApplicationContext(), String.valueOf(quiz.getCalification()),Toast.LENGTH_SHORT).show();
+
             TextView t = findViewById(R.id.viewResult);
             t.setText(String.valueOf(quiz.getCalification()));
             Button b = findViewById(R.id.button2);
